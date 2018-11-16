@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	
+    <meta name="author" content="JTKIM">
+    <meta name="description" content="Page for BMR verification">
+    <!-- <link rel="icon" href=""> -->
+	
+    <link rel="stylesheet" type="text/css" href="static/lib/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="static/lib/css/timeline.css">
+    <link rel="stylesheet" type="text/css" href="static/lib/my/my.css">
+
+	<title>BMCord::조회결과</title>
+</head>
+
+<body onload="drawVisualization2()">
+
+<div class="wrapper">	
+
+
+
+	<!-- <div class="menu"></div> -->
+    <div class="container">
+		<div class="page-header">
+			<div style="float: right;"><a id="logoBMCord" href="/" title="BMCord" style="padding-left: 0px;">
+					<img style="max-width:100px; margin-top: -7px;" src="static/lib/my/logoBMCord_tr.png">
+				</a></div>
+			<div style="text-align: left;">
+			<h2>
+				Search Result 
+<small id="docID" style="color: lightgray;">{{ result }}</small>
+			</h2>
+
+			</div>
+
+		</div>
+		<!-- <div id="docID" style="color: lightgray; text-align: right"><p>153sd5f18sdfasd3f5</p></div> -->
+	    <div class="timeline-container">
+		<div>
+		    <!-- <input type="button" value="today" class="btn btn-default" title="Move to current time" onclick="moveToCurrentTime();"> -->
+		    <input type="button" value="entire timeline" class="btn btn-default" title="Adjust visible range to accommodate all events" onclick="adjustVisibleTimeRangeToAccommodateAllEvents();">
+		    <input type="button" value="this document" class="btn btn-default" title="Adjust visible range to document" onclick="adjustVisibleRangeRelated();">
+		</div>
+
+	        <div id="mytimeline"></div>
+
+<!-- 	        <div class="timeline-controls-container">
+	            <div class="timeline-controls">
+	                <input type="button" value="" class="btn-zoom-in btn btn-default" title="Zoom in" >
+	                <input type="button" value="" class="btn-zoom-out btn btn-default" title="Zoom in">
+	                
+	                <input type="button" value="" class="btn-move-left btn btn-default" title="Move left">
+	                <input type="button" value="" class="btn-move-right btn btn-default"  title="Move right">
+	            </div>
+	        </div> -->
+
+	    </div>
+	    <div class="panel panel-danger" id="veri-result">
+			<div class="panel-heading" id="veri-heading">!! NOT VERIFIED !!</div>
+			<div class="panel-body" id="veri-body">
+				<p>No matching information found. <br> Please check the code again or there might be a problem with your document.</p>
+			</div>
+			<table class="table" id="veri-table">
+				<thead>
+					<tr>
+						<th>Version</th>
+						<th>Date</th>
+						<th>Content</th>
+					</tr>
+				<tbody>
+					<tr id="event_id_1">
+						<th>-</th>
+						<td>-</td>
+						<td>-</td>
+					</tr>															
+			</table>
+		</div>
+
+	</div>
+
+
+    <footer class="footer" style="margin-top: 30px; text-align: right">
+      <div class="container">
+        <p class="text-muted">KISA HACKATHON :: TEAM 블록수공업</p>
+      </div>
+    </footer>
+</div>
+    <script type="text/javascript" src="static/lib/js/jquery.min.js"></script>
+    <script type="text/javascript" src="static/lib/js/jquery.scrollTo.min.js"></script>
+    <script type="text/javascript" src="static/lib/js/timeline.js"></script>
+    <script type="text/javascript" src="static/lib/js/timeline-locales.js"></script>
+    <script type="text/javascript" src="static/lib/my/myjs.js"></script>	
+    <script type="text/javascript" src="static/lib/my/drawvis.js"></script>	
+    <script type="text/javascript" src="static/lib/my/mouse.js"></script>	
+
+</body>
+</html>

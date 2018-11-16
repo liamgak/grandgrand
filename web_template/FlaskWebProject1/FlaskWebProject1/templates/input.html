@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	
+    <meta name="author" content="JTKIM">
+    <meta name="description" content="Page for BMR verification">
+    <!-- <link rel="icon" href=""> -->
+	
+    <link rel="stylesheet" type="text/css" href="static/lib/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="static/lib/css/timeline.css">
+    <link rel="stylesheet" type="text/css" href="static/lib/my/my.css">
+
+	<title>BMCord::조회페이지</title>
+</head>
+
+<body>
+
+<div class="wrapper" style="text-align: center">	
+
+
+	<!-- <div class="menu"></div> -->
+    <div class="container">
+<!-- 		<div class="page-header">
+			<div style="float: right;"><a id="logoBMCord" href="/" title="BMCord" style="padding-left: 0px;">
+					<img style="max-width:100px; margin-top: -7px;" src="static/lib/my/logoBMCord_tr.png">
+				</a></div>
+			<div style="text-align: left;"><h2>
+				Search Result <small id="docID" style="color: lightgray;">153sd5f18sdfasd3f5</small>
+			</h2></div>
+		</div> -->
+	<div style="height:233px; margin-top:89px;">
+		<img alt="BMCord" src="static/lib/my/logoBMCord_tr.png" style="padding-top:10px; width:272px;margin-bottom: 30px" >
+		<p id="greeting">문서검증번호를 입력하여 조회가 가능합니다.</p>
+		<div style="">
+			<form method="POST" action="resultnm">
+				<div class="input-group">
+					<input name="doc-code" id="doc-code" maxlength="44" type="text" class="form-control" placeholder="문서검증번호">
+					<span class="input-group-btn">
+					<button class="btn btn-default" type="submit" onclick="hresult()">조회</button>
+				</span>
+				</div><!-- /input-group -->
+			</form>
+		</div><!-- /.col-lg-6 -->
+	</div>
+	</div>
+
+
+	<!-- </div> -->
+
+
+    <footer class="footer" style="margin-top: 30px;">
+      <div class="container">
+        <p class="text-muted">KISA HACKATHON :: TEAM 블록수공업</p>
+      </div>
+    </footer>
+</div>
+    <script type="text/javascript" src="static/lib/js/jquery.min.js"></script>
+    <script type="text/javascript" src="static/lib/js/jquery.scrollTo.min.js"></script>
+    <script type="text/javascript" src="static/lib/my/myjs.js"></script>	
+
+</body>
+</html>
