@@ -48,26 +48,27 @@ def DBUpdate(updated_block, new_block):
     updated_block=updated_block+1
     for current_block in range(updated_block, new_block+1):
         # Get tx list of current_block
+        print('[Traversing] block is confirmed!')
         tx_list=getBlockInfo(current_block)['txs']
         if len(tx_list)!=0:
             #Insert tx data in databse
             #{Patient id, emr, emrID, time, opration, comment}
-            print(tx_list)
             for tx in tx_list:
                 # if tx is not reward transaction, tx is dictionary type
                 # real data: if tx['opration']!='2':
+                print('[Update] emr data is added!')
                 tx_insert=dict()
                 tx_insert['RowKey']=str(latest.count)
                 tx_insert['PartitionKey']='EMR'
                 tx_insert['patientID']=tx['to']
-                tx_insert['emr']=tx['from']
-                #tx_insert['emr']=tx['emr']
-                #tx_insert['emrID']=tx['emrID']
-                #tx_insert['time']=tx['time']
+                tx_insert['hospitalID']=tx['from']
+                tx_insert['patientID']=tx['emr']
+                tx_insert['emrID']=tx['emrID']
+                tx_insert['time']=tx['time']
                 #tx_insert['operation']=tx['operation']
                 #tx_insert['comment']:tx['comment']
                 DBInsert(tx_insert)
-                print('[Update] Indexing DB is updated!')
+            
                 
 # called by DBUpdate
 def DBInsert(tx):
@@ -77,6 +78,7 @@ def DBInsert(tx):
     table_service.insert_entity('EMR',tx)
 
 #Main
+print('[Hycon X BMCord] Hi Grand-challenge.')
 latest=Current_sync()
 while(True):
     sleep(2) # 20s sleep
@@ -84,5 +86,4 @@ while(True):
         #Update databse
         DBUpdate(latest.height, getHighestBlockInfo()['height'])
         latest.height=getHighestBlockInfo()['height']
-        print("[Update] height is updated!")
-        print(latest.height)
+        print("[Update] height is updated to "+getHighestBlockInfo()['height']+"!")

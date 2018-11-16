@@ -32,7 +32,7 @@ def getBlockInfo(block_number):
 def DBUpdate(updated_block, new_block):
     updated_block=updated_block+1
     for current_block in range(updated_block, new_block+1):
-        print(current_block)
+        print('[Traversing] block '+current_block+' is confirmed')
         tx_list=getBlockInfo(current_block)
         if len(tx_list)!=0:
             #Insert tx data in databse
@@ -40,14 +40,15 @@ def DBUpdate(updated_block, new_block):
             for tx in tx_list:
                 # if tx is not reward transaction, tx is dictionary type
                 # real data: if tx['opration']!='2':
+                print('[Update] emr data is added')
                 tx_insert={}
                 tx_insert['RowKey']=str(latest.count)
                 tx_insert['PartitionKey']='EMR'
                 tx_insert['patientID']=tx['to']
-                tx_insert['emr']=tx['from']
-                #tx_insert['emr']=tx['emr']
-                #tx_insert['emrID']=tx['emrID']
-                #tx_insert['time']=tx['time']
+                tx_insert['hospital']=tx['from']
+                tx_insert['emr']=tx['emr']
+                tx_insert['emrID']=tx['emrID'] #int
+                tx_insert['time']=tx['time']
                 #tx_insert['operation']=tx['operation']
                 #tx_insert['comment']:tx['comment']
                 DBInsert(tx_insert)
